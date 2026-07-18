@@ -23,3 +23,14 @@ An AI-powered research assistant built using:
 ## Status
 
 Day 1/10 Development Started
+Made the folder stucture
+Day 2:
+- Project Setup
+- GitHub Setup
+- Document Loader
+- PDF Extraction
+
+Status: Completed
+
+
+
