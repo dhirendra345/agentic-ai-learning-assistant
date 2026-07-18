@@ -16,3 +16,13 @@ print(f"Total Chunks: {len(chunks)}")
 for i, chunk in enumerate(chunks, start=1):
     print(f"\n----- Chunk {i} -----")
     print(chunk)
+    
+    
+from services.embedding_service import EmbeddingService
+
+embedding_service = EmbeddingService()
+
+embeddings = embedding_service.generate_embeddings(chunks)
+
+print(f"\nTotal Embeddings: {len(embeddings)}")
+print(f"Embedding Dimension: {len(embeddings[0])}")
