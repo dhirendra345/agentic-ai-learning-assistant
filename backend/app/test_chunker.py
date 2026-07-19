@@ -26,3 +26,12 @@ embeddings = embedding_service.generate_embeddings(chunks)
 
 print(f"\nTotal Embeddings: {len(embeddings)}")
 print(f"Embedding Dimension: {len(embeddings[0])}")
+
+from services.vector_store import VectorStore
+
+vector_db = VectorStore()
+
+vector_db.add_documents(
+    chunks,
+    embeddings
+)
