@@ -36,3 +36,14 @@ class VectorStore:
         )
 
         print(f"{len(chunks)} chunks stored successfully.")
+        
+    def search(self, query_embedding, n_results=3):
+
+     results = self.collection.query(
+        query_embeddings=[query_embedding.tolist()],
+        n_results=n_results
+    )
+
+     return results
+        
+        

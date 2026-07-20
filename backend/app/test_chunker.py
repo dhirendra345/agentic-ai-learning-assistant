@@ -35,3 +35,13 @@ vector_db.add_documents(
     chunks,
     embeddings
 )
+
+query = "What is Nyquist Bit Rate?"
+
+query_embedding = embedding_service.generate_embeddings(
+    [query]
+)[0]
+
+results = vector_db.search(query_embedding)
+
+print(results["documents"][0])
