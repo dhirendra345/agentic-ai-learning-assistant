@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import sys
 import os
+from backend.api.upload import router as upload_router
 
 sys.path.append(
     os.path.abspath(
@@ -19,4 +20,9 @@ app.include_router(
     health_router,
     prefix="/health",
     tags=["Health"]
+)
+app.include_router(
+    upload_router,
+    prefix="/upload",
+    tags=["Upload"]
 )
