@@ -1,3 +1,4 @@
+from fastapi import FastAPI
 import sys
 import os
 
@@ -7,21 +8,15 @@ sys.path.append(
     )
 )
 
-from services.document_loader import DocumentLoader
+from api.health import router as health_router
 
-BASE_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../..")
+app = FastAPI(
+    title="Agentic AI Research Assistant",
+    version="1.0"
 )
 
-pdf_path = os.path.join(
-    BASE_DIR,
-    "data",
-    "uploads",
-    "sample.pdf"
+app.include_router(
+    health_router,
+    prefix="/health",
+    tags=["Health"]
 )
-
-print("PDF Path:", pdf_path)
-
-pdf_text = DocumentLoader.read_pdf(pdf_path)
-
-print(pdf_text[:1000])
